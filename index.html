@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NinjaCode</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const lastName = document.getElementById('last-name').value.trim();
+            const email = document.getElementById('mail').value.trim();
+
+            if (name === '' || lastName === '' || email === '') {
+                alert('Wypełnij wszystkie pola formularza.');
+                return false;
+            }
+            
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert("Wprowadź poprawny adres e-mail.")
+                return false;
+            } 
+
+            const correctMessage = `Witaj, ${name} ${lastName}! Formularz został pomyślnie przesłany.`
+            document.write(correctMessage.fontcolor("#0099FF").fontsize(20));
+            return true;
+
+        }
+    </script>
+
+</head>
+<body>
+    <form autocomplete="off">
+        <div class="form__input-container">
+            <input id="name" type="text" placeholder=" "  />
+            <label for="name">Imię</label>
+        </div>
+        <div class="form__input-container">
+            <input id="last-name" type="text" placeholder=" " />
+            <label for="last-name">Nazwisko</label>
+        </div>
+        <div class="form__input-container">
+            <input id="mail" type="email" placeholder=" " />
+            <label for="mail">E-mail</label>
+        </div>
+        <button type="button" onclick="validateForm()">Wyślij</button>
+
+    </form>
+
+    
+    
+</body>
+</html> 
